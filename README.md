@@ -1,4 +1,4 @@
-# Multi Server BLE Client
+# Multiple Servers BLE Client
 + **When connecting to sensors, only the name is used**
 + **Sensors connect/disconnect monitoring**
 #
