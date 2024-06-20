@@ -197,7 +197,6 @@ bool connectToServer2() {
     Serial.print("-Found our characteristic2: ");
     Serial.println(pRemoteCharacteristic2->getUUID().toString().c_str());
 
-    // это терминальное свойство !!!
     // событие порождается сервером...
     if(pRemoteCharacteristic2->canNotify()) 
         pRemoteCharacteristic2->registerForNotify(notifyCallback2,false);//!!!!!!!!!!
@@ -280,7 +279,6 @@ bool connectToServer4() {
     Serial.print("-Found our characteristic4: ");
     Serial.println(pRemoteCharacteristic2->getUUID().toString().c_str());
 
-    // это терминальное свойство !!!
     // событие порождается сервером...
     if(pRemoteCharacteristic4->canNotify()) 
         pRemoteCharacteristic4->registerForNotify(notifyCallback4,false);//!!!!!!!!!!
@@ -352,14 +350,14 @@ void ble_client_init(){
 void ble_client_handle(){
 
   // периодически запускаем сканирование раз в [interval]
-  // если есть хоть один неподключенный датчик 
-  unsigned long currentMillis = millis();
-  if (currentMillis - previousMillis >=interval) {
+  // если есть хоть один неподключенный датчик
+  unsigned long currentMillis = millis();   
+  if (currentMillis - previousMillis >=interval) { //30 sec.
     if(!connected1 || !connected2 || !connected3 || !connected4){ //хотя бы один отпал..
       doScan = true;
       Serial.println("Scanning Go..");
     }
-    previousMillis = currentMillis;
+    previousMillis = currentMillis; //30 sec.
   }
 
   //запрос - сканировать
@@ -433,8 +431,5 @@ void ble_client_handle(){
     pRemoteCharacteristic4->writeValue(newValue.c_str(), newValue.length());
     delay(50);
   }
-    
-  //Serial.print("connected="+String(connected));
-  //Serial.print("  doScan="+String(doScan));
-  //Serial.println("  doConnect="+String(doConnect));
+
 }

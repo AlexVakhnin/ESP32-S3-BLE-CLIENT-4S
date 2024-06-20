@@ -49,6 +49,6 @@ void loop() {
 
   ble_client_handle();
 
-  delay(5000); // Delay a second between loops.
+  delay(1000); // Delay a second between loops.
 
 }
