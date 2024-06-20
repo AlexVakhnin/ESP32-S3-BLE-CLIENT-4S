@@ -296,7 +296,7 @@ class MyAdvertisedDeviceCallbacks: public BLEAdvertisedDeviceCallbacks {
   // событие вызывается для каждого сервера рекламирующего услуги..
   void onResult(BLEAdvertisedDevice advertisedDevice) {
     
-    Serial.print("Scaner: Name=");Serial.print(advertisedDevice.getName().c_str());
+    Serial.print("Scanner: Name=");Serial.print(advertisedDevice.getName().c_str());
     Serial.print(" Address=");Serial.print(advertisedDevice.getAddress().toString().c_str());
 
       // проверяем имена наших сенсоров
